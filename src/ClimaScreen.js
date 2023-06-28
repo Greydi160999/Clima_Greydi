@@ -30,9 +30,22 @@ if (!climaData) {
         <Text>Cargando ...  </Text>
         </View>
     );
- }
+ 
 
  return (
     <View>
+       {climaData.map((clima, index) => (
+        <View key={index}>
+           <Text>Ubicación: {clima.location.name},  {clima.location.region},  {clima.location.country}</Text>   
+           <Text>Temperatura: {clima.current.temp_c}ºC</Text>
+           <Text>Condición: {clima.current.condition.text}</Text>
+           <Text>---------------------------------</Text>
+            </View>
+       ))}
     </View>
- )
+ );
+};
+
+export default ClimaScreen;
+
+
